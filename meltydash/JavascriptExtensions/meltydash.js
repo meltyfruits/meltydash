@@ -6,7 +6,7 @@ function settings() {
     show_gauges: true, // true, false
     low_fuel_alert_percent: 10,
     speed_unit: "kmh", // kmh, mph
-    theme: "normal", // normal, melted, sludge
+    theme: "default", // default, melted, sludge
 		lap_timer: "current", // current or predicted
 		low_fuel_position: "vertical", // horizontal or vertical
   });
@@ -14,7 +14,7 @@ function settings() {
 
 // theme colour palettes
 function colours() {
-  if (settings().theme === "normal") {
+  if (settings().theme === "default") {
     return (arr = {
       blue: "#FF004EA8",
       light_blue: "#FF0095C8",
