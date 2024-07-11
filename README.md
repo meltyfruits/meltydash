@@ -7,7 +7,7 @@
 
 ### Features
 * Dynamically shows in-car adjustment cards based on what that car has available, i.e., if throttle shape is available, the throttle shape card will be visible.
-* Shows a popup when an in-car setting is changed. The amout of time the popup is displayed for can be customized in the settings.. I'm happy to say that this isn't done with layers and will ***always*** show the last updated in-car setting.
+* Shows a popup when an in-car setting is changed. The amout of time the popup is displayed for can be customized in the settings. I'm happy to say that this isn't done with layers and will ***always*** show the last updated in-car setting.
 * After crossing the start/finish line, the last lap's delta to the session best will be held briefly. The amount of time it holds for can be customized in the settings.
 * Low fuel warning displays by default at 10% remaining fuel. The threshold can be customized in the settings. Additionally, the orientation of the alert can be changed to vertical or horizontal.
 * Speed units can be changed in the settings to display kmh or mph.
@@ -23,11 +23,11 @@
 * [ ] New theme: Sludge
 * [x] Speed unit setting (mph, kmh)
 * [x] Custom delay time setting
-* [ ] Sector lights
+* [ ] Sector lights - IN PROGRESS
 * [ ] Predicted or current lap time setting
 * [ ] Fuel delta 
 * [ ] Track map page
-* [ ] Migrate settings to dedicated file
+* [x] Migrate settings to dedicated file
 * [ ] Optimization (refresh interval is 0 for all components)
 
 ---
