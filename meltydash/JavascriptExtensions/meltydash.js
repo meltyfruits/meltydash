@@ -1,19 +1,7 @@
 // Meltydash
 
-function settings() {
-  return (arr = {
-    delay_time: 2.5, // time in seconds
-    show_gauges: true, // true, false
-    low_fuel_alert_percent: 10,
-    speed_unit: "kmh", // kmh, mph
-    theme: "default", // default, melted, sludge
-		lap_timer: "current", // current or predicted
-		low_fuel_position: "vertical", // horizontal or vertical
-  });
-}
-
-// theme colour palettes
-function colours() {
+// theme color palettes
+function colors() {
   if (settings().theme === "default") {
     return (arr = {
       blue: "#FF004EA8",
@@ -150,7 +138,7 @@ function setChg() {
       root["abs"] = $prop("ABSLevel");
       root["setting"] = root["abs"];
       root["name"] = "ABS";
-      root["colour"] = colours().orange;
+      root["color"] = colors().orange;
     }
   }
 
@@ -162,7 +150,7 @@ function setChg() {
       root["tc1"] = $prop("TCLevel");
       root["setting"] = root["tc1"];
       root["name"] = "TC A";
-      root["colour"] = colours().blue;
+      root["color"] = colors().blue;
     }
   }
 
@@ -174,7 +162,7 @@ function setChg() {
       root["tc2"] = $prop("GameRawData.Telemetry.dcTractionControl2");
       root["setting"] = root["tc2"];
       root["name"] = "TC B";
-      root["colour"] = colours().light_blue;
+      root["color"] = colors().light_blue;
     }
   }
 
@@ -186,7 +174,7 @@ function setChg() {
       root["bias"] = $prop("BrakeBias");
       root["setting"] = root["bias"].toFixed(1);
       root["name"] = "BIAS";
-      root["colour"] = colours().red;
+      root["color"] = colors().red;
     }
   }
 
@@ -198,7 +186,7 @@ function setChg() {
       root["map"] = $prop("GameRawData.Telemetry.dcFuelMixture");
       root["setting"] = root["map"];
       root["name"] = "MAP";
-      root["colour"] = colours().green;
+      root["color"] = colors().green;
     }
   }
 
@@ -210,7 +198,7 @@ function setChg() {
       root["eps"] = $prop("GameRawData.Telemetry.dcPowerSteering");
       root["setting"] = root["eps"];
       root["name"] = "EPS";
-      root["colour"] = colours().green;
+      root["color"] = colors().green;
     }
   }
 
@@ -222,7 +210,7 @@ function setChg() {
       root["farb"] = $prop("GameRawData.Telemetry.dcAntiRollFront");
       root["setting"] = root["farb"];
       root["name"] = "F ARB";
-      root["colour"] = colours().yellow;
+      root["color"] = colors().yellow;
     }
   }
 
@@ -234,7 +222,7 @@ function setChg() {
       root["boost"] = $prop("GameRawData.Telemetry.dcBoostLevel");
       root["setting"] = root["boost"];
       root["name"] = "BOOST";
-      root["colour"] = colours().yellow;
+      root["color"] = colors().yellow;
     }
   }
 
@@ -246,7 +234,7 @@ function setChg() {
       root["rarb"] = $prop("GameRawData.Telemetry.dcAntiRollRear");
       root["setting"] = root["rarb"];
       root["name"] = "R ARB";
-      root["colour"] = colours().purple;
+      root["color"] = colors().purple;
     }
   }
 
@@ -258,14 +246,14 @@ function setChg() {
       root["tps"] = $prop("GameRawData.Telemetry.dcThrottleShape");
       root["setting"] = root["tps"];
       root["name"] = "TPS";
-      root["colour"] = colours().purple;
+      root["color"] = colors().purple;
     }
   }
 
   return (arr = {
     setting: root["setting"],
     name: root["name"],
-    colour: root["colour"],
+    color: root["color"],
   });
 }
 
@@ -306,7 +294,7 @@ function wipers() {
 function isInPit() {
   return (arr = {
     pitLimiterOn: $prop("PitLimiterOn") === 1 ? true : false,
-		isInPit: $prop('IsInPitLane') === 1 ? true : false,
+    isInPitLane: $prop("IsInPitLane") === 1 ? true : false,
     timeInPit: $prop("IsInPitSince"),
   });
 }
@@ -343,21 +331,21 @@ function hybrid() {
   var ers = $prop("GameRawData.Telemetry.EnergyERSBatteryPct") * 100;
   return (arr = {
     ers: ers.toFixed(1),
-		mode: mode,
+    mode: mode,
   });
 }
 
 // speed units
 function speedUnits() {
   if (settings().speed_unit === "kmh") {
-    return $prop('SpeedKmh');
+    return $prop("SpeedKmh");
   } else if (settings().speed_unit === "mph") {
-    return $prop('SpeedMph');
+    return $prop("SpeedMph");
   }
 }
 
 function ver() {
-	return "0.001"; // tested and compatible with SimHub 9.3.8
+  return "0.001"; // tested and compatible with SimHub 9.3.8
 }
 
 /*
