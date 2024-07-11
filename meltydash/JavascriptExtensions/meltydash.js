@@ -306,7 +306,7 @@ function wipers() {
 function isInPit() {
   return (arr = {
     pitLimiterOn: $prop("PitLimiterOn") === 1 ? true : false,
-		isInPit: $prop('IsInPit') === 1 ? true : false,
+		isInPit: $prop('IsInPitLane') === 1 ? true : false,
     timeInPit: $prop("IsInPitSince"),
   });
 }
