@@ -27,6 +27,7 @@
 * [ ] Predicted or current lap time setting
 * [ ] Fuel delta 
 * [ ] Track map page
+* [ ] Migrate settings to dedicated file
 * [ ] Optimization (refresh interval is 0 for all components)
 
 ---
