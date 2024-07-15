@@ -18,7 +18,7 @@
 * Default theme consists of thoughtfully chosen PANTONE®-based colors.
 
 ### Supported games
-* iRacing
+<p align="center"><img  src="https://github.com/meltyfruits/meltydash/blob/main/images/supported_sim.png?raw=true" alt="supported_games"/></p>
 
 ### Roadmap
 * [ ] Hybrid page(s) - IN PROGRESS
