@@ -3,9 +3,9 @@
 
 <p align="center">A feature-rich dashboard for SimHub</p>
 
-<p align="center"><img src="https://github.com/meltyfruits/meltydash/blob/main/meltydash/meltydash.djson.png?raw=true" alt="menuscreen"/></p>
+<p align="center"><img width="620" height="350" src="https://github.com/meltyfruits/meltydash/blob/main/meltydash/meltydash.djson.png?raw=true" alt="menuscreen"/></p>
 
-### Features
+### <p align="center">Features</p>
 * Dynamically shows in-car adjustment cards based on what that car has available, i.e., if throttle shape is available, the throttle shape card will be visible.
 * Shows a popup when an in-car setting is changed. The amout of time the popup is displayed for can be customized in the settings. I'm happy to say that this isn't done with layers and will ***always*** show the last updated in-car setting.
 * After crossing the start/finish line, the last lap's delta to the session best will be held briefly. The amount of time it holds for can be customized in the settings.
@@ -17,8 +17,8 @@
 * Multiple color themes.
 * Default theme consists of thoughtfully chosen PANTONE®-based colors.
 
-### Supported games
-<p align="center"><img  src="https://github.com/meltyfruits/meltydash/blob/main/images/supported_sim.png?raw=true" alt="supported_games"/></p>
+### <p align="center">Supported games</p>
+<p align="center"><img width="800" height="200" src="https://github.com/meltyfruits/meltydash/blob/main/images/supported_sim_current.png?raw=true" alt="supported_games"/></p>
 
 ### Roadmap
 * [ ] Hybrid page(s) - IN PROGRESS
