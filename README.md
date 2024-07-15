@@ -9,8 +9,8 @@
 * Dynamically shows in-car adjustment cards based on what that car has available, i.e., if throttle shape is available, the throttle shape card will be visible.
 * Shows a popup when an in-car setting is changed. The amout of time the popup is displayed for can be customized in the settings. I'm happy to say that this isn't done with layers and will ***always*** show the last updated in-car setting.
 * After crossing the start/finish line, the last lap's delta to the session best will be held briefly. The amount of time it holds for can be customized in the settings.
-* After crossing the start/finish line, the last lap time will be briefly held over the current or predicted time card. The amount of time it holde for can be customized in the settings.
-* Low fuel warning displays by default at 10% remaining fuel. The threshold can be customized in the settings. Additionally, the orientation of the alert can be changed to vertical or horizontal.
+* After crossing the start/finish line, the last lap time will be briefly held over the current or predicted time card. The amount of time it holds for can be customized in the settings.
+* Low fuel warning displays by default at 10% remaining fuel load. The threshold can be customized in the settings. Additionally, the orientation of the alert can be changed to vertical or horizontal.
 * Speed units can be changed in the settings to display kmh or mph.
 * Pit limiter screen will show a red background if the pit limiter is engaged while outside of pit lane. It will show a green background while in pit lane.
 * The throttle and brake gauges in the center cluster can optionally be displayed using the settings file. They are visible by default.
