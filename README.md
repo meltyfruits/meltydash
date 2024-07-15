@@ -16,20 +16,26 @@
 * Multiple color themes.
 * Default theme consists of thoughtfully chosen PANTONE®-based colors.
 
-### To do
+### Supported games
+* iRacing
+
+### Roadmap
 * [ ] Hybrid page(s) - IN PROGRESS
 * [ ] Qualifying mode
 * [ ] Tyre and brake temps page(s)
-* [x] New theme: Melted
-* [ ] New theme: Sludge
 * [x] Speed unit setting (mph, kmh)
 * [x] Custom delay time setting
 * [ ] Sector lights - IN PROGRESS
 * [ ] Predicted or current lap time setting
 * [ ] Fuel delta 
 * [ ] Track map page
+* [ ] Relative page 
+* [ ] Session information page
+* [ ] Rework & redesign headlight and wiper cards
 * [x] Migrate settings to dedicated file
 * [ ] Optimization (refresh interval is 0 for all components)
+* [x] New theme: Melted
+* [ ] New theme: Sludge
 
 ---
 <p align="center">You might enjoy my other SimHub projects!</p>
