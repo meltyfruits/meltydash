@@ -37,6 +37,7 @@
 * [ ] Session information page (weather, track coneition, etc.)
 * [ ] Rework & redesign headlight and wiper cards
 * [x] Migrate settings to dedicated file
+* [ ] Settings file validation and warning page
 * [ ] Optimization (refresh interval is 0 for all components)
 * [x] New theme: Melted
 * [ ] New theme: Sludge
