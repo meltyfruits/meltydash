@@ -23,7 +23,7 @@
 ### Roadmap
 * [ ] Hybrid page(s) - IN PROGRESS
 * [ ] Qualifying mode
-* [x] Speed unit setting (mph, kmh)
+* [x] Speed unit setting (kmh, mph)
 * [x] Custom delay time setting
 * [ ] Overall position or class position setting
 * [ ] Sector lights - IN PROGRESS
@@ -31,7 +31,8 @@
 * [ ] Fuel delta 
 * [ ] Flag information
 * [ ] Tyre and brake temps page(s)
-* [ ] Track map page
+* [ ] Track map page - IN PROGRESS
+* [ ] Input and info chart pages - IN PROGRESS 
 * [ ] Relative page
 * [ ] Session information page (weather, track coneition, etc.)
 * [ ] Rework & redesign headlight and wiper cards
