@@ -309,6 +309,13 @@ function lowFuel() {
     : false;
 }
 
+// predicted lap time
+function pred() {
+  var best = timespantoseconds($prop("BestLapTime"));
+  var delta = $prop('PersistantTrackerPlugin.SessionBestLiveDeltaSeconds');
+  return secondstotimespan(best + delta);
+}
+
 function hybrid() {
   var mode = $prop("GameRawData.Telemetry.dcMGUKDeployMode");
   switch (mode) {
