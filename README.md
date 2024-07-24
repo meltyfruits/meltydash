@@ -27,7 +27,7 @@
 * [x] Custom delay time setting
 * [ ] Overall position or class position setting
 * [ ] Sector lights - IN PROGRESS
-* [ ] Predicted or current lap time setting
+* [x] Predicted or current lap time setting
 * [ ] Fuel delta 
 * [ ] Flag information
 * [ ] Tyre and brake temps page(s)
