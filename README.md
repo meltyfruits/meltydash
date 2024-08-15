@@ -3,7 +3,7 @@
 
 <p align="center">A feature-rich dashboard for SimHub</p>
 
-<p align="center"><img src="https://github.com/meltyfruits/meltydash/blob/main/meltydash/meltydash.djson.png?raw=true" alt="menuscreen"/></p>
+<p align="center"><img src="https://github.com/meltyfruits/meltydash/blob/main/images/meltydash_preview_resize.png?raw=true" alt="menuscreen"/></p>
 
 ### <p align="center">Features</p>
 * Dynamically shows in-car adjustment cards based on what that car has available, i.e., if throttle shape is available, the throttle shape card will be visible.
