@@ -22,17 +22,17 @@
 
 ### Roadmap
 * [ ] Hybrid page(s) - IN PROGRESS
-* [ ] Qualifying mode
+* [ ] Qualifying mode - IN PROGRESS
 * [x] Speed unit setting (kmh, mph)
 * [x] Custom delay time setting
 * [ ] Overall position or class position setting
-* [ ] Sector lights - IN PROGRESS
+* [ ] Sector lights - PAUSED
 * [x] Predicted or current lap time setting
 * [ ] Fuel delta 
 * [ ] Flag information
 * [ ] Tyre and brake temps page(s)
-* [ ] Track map page - IN PROGRESS
-* [ ] Input and info chart pages - IN PROGRESS 
+* [ ] Track map page - PAUSED
+* [ ] Input and info chart pages - THROTTLE & BRAKE COMPLETE
 * [ ] Relative page
 * [ ] Session information page (weather, track coneition, etc.)
 * [ ] Rework & redesign headlight and wiper cards
