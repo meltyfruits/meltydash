@@ -44,6 +44,9 @@
 * [ ] New theme: Murky
 
 ---
+### Credits
+
+---
 <p align="center">You might enjoy my other SimHub projects!</p>
 
 <p align="center"><img width="350" src="https://github.com/meltyfruits/SimHub-VBOX-LapTimer/blob/main/VBOX%20LapTimer%20(Racelogic).djson.png?raw=true" alt="menuscreen"/></p>
