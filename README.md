@@ -13,9 +13,10 @@
 * Low fuel warning displays by default at 10% remaining fuel load. The threshold can be customized in the settings. Additionally, the orientation of the alert can be changed to vertical or horizontal.
 * Speed units can be changed in the settings to display kmh or mph.
 * Pit limiter screen will show a red background if the pit limiter is engaged while outside of pit lane. It will show a green background while in pit lane.
-* The throttle and brake gauges in the center cluster can optionally be displayed using the settings file. They are visible by default.
+* The throttle and brake gauges in the center cluster can optionally be displayed using the settings file. They are visible by default. 
 * Multiple color themes.
 * Default theme consists of thoughtfully chosen PANTONE®-based colors.
+* The typeface, Authentic Sans by Christina Janus and Desmond Wong, provides clear and legible text throughout the dashboard. The Authentic Sans font family is included with the dashboard. 
 
 ### <p align="center">Supported games</p>
 <p align="center"><img src="https://github.com/meltyfruits/meltydash/blob/main/images/supported_sim_current.png?raw=true" alt="supported_games"/></p>
@@ -44,7 +45,10 @@
 * [ ] New theme: Murky
 
 ---
-### Credits
+### <p align="center">Credits
+<a href="https://authentic.website/shop.html#sans" target="_blank">Authentic Sans</a>
+</p>
+
 
 ---
 <p align="center">You might enjoy my other SimHub projects!</p>
