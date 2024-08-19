@@ -45,9 +45,9 @@
 * [ ] New theme: Murky
 
 ---
-### <p align="center">Credits
-<a href="https://authentic.website/shop.html#sans" target="_blank">Authentic Sans</a>
-</p>
+### <p align="center">Credits</p>
+<a href="https://authentic.website/shop.html#sans" target="_blank">Authentic Sans</a> by Christina Janus and Desmond Wong used and included under the <a href="https://authentic.website/license/wtfpl.txt" target="_blank">WTFPL</a> license. 
+
 
 
 ---
