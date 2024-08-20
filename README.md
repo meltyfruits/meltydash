@@ -45,10 +45,8 @@
 * [ ] New theme: Murky
 
 ---
-### <p align="center">Credits</p>
+### <p align="center">Credits & Attribution</p>
 <a href="https://authentic.website/shop.html#sans" target="_blank">Authentic Sans</a> by Christina Janus and Desmond Wong used and included under the <a href="https://authentic.website/license/wtfpl.txt" target="_blank">WTFPL</a> license. 
-
-
 
 ---
 <p align="center">You might enjoy my other SimHub projects!</p>
