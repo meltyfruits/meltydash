@@ -16,7 +16,7 @@
 * The throttle and brake gauges in the center cluster can optionally be displayed using the settings file. They are visible by default. 
 * Multiple color themes.
 * Default theme consists of thoughtfully chosen PANTONE®-based colors.
-* The typeface, Authentic Sans by Christina Janus and Desmond Wong, provides clear and legible text throughout the dashboard. The Authentic Sans font family is included with the dashboard. 
+* The typeface, Authentic Sans by Christina Janus and Desmond Wong, provides clear and legible text throughout the dashboard. The Authentic Sans font family is included<sup>1</sup> with the dashboard. 
 
 ### <p align="center">Supported games</p>
 <p align="center"><img src="https://github.com/meltyfruits/meltydash/blob/main/images/supported_sim_current.png?raw=true" alt="supported_games"/></p>
@@ -46,7 +46,7 @@
 
 ---
 ### <p align="center">Credits & Attribution</p>
-<a href="https://authentic.website/shop.html#sans" target="_blank">Authentic Sans</a> by Christina Janus and Desmond Wong used and included under the <a href="https://authentic.website/license/wtfpl.txt" target="_blank">WTFPL</a> license. 
+<sup>1</sup><a href="https://authentic.website/shop.html#sans" target="_blank">Authentic Sans</a> by Christina Janus and Desmond Wong used and included under the <a href="https://authentic.website/license/wtfpl.txt" target="_blank">WTFPL</a> license. 
 
 ---
 <p align="center">You might enjoy my other SimHub projects!</p>
