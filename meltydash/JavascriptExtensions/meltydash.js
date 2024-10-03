@@ -3,7 +3,7 @@
 // theme color palettes
 function colors() {
   if (settings().theme === "default") {
-    return (arr = {
+    return (obj = {
       blue: "#FF004EA8",
       light_blue: "#FF0095C8",
       orange: "#FFFF8200",
@@ -14,13 +14,14 @@ function colors() {
       purple: "#FF4C12A1",
       grey: "#FF2E334E",
       light_grey: "#FF8BA6C1",
+      dark_grey: "FF272727",
       white: "#FFFFFFFF",
       pink: "#FFE10098",
       gauge: "#67808080",
     });
   }
   if (settings().theme === "melted") {
-    return (arr = {
+    return (obj = {
       blue: "#FF030466",
       light_blue: "#FF0068A4",
       orange: "#FFCE2200",
@@ -31,6 +32,7 @@ function colors() {
       purple: "#FF360063",
       grey: "#FF241B37",
       light_grey: "#FF2E334E",
+      dark_grey: "FF272727",
       white: "#FFAFC7E5",
       pink: "#FFAF0077",
       gauge: "#67808080",
@@ -38,126 +40,192 @@ function colors() {
   }
 }
 
-// collect info about the game and car
+// get info about the game and car
 function info() {
-  var hasABS = false;
-  $prop("GameRawData.SessionData.CarSetup.Chassis.InCarDials.AbsSetting") !==
-  null
-    ? (hasABS = true)
-    : (hasABS = false);
-  var hasTC1 = false;
-  $prop("TCLevel") !== null ? (hasTC1 = true) : (hasTC1 = false);
-  var hasTC2 = false;
-  $prop("GameRawData.Telemetry.dcTractionControl2") !== null
-    ? (hasTC2 = true)
-    : (hasTC2 = false);
-  var hasBB = false;
-  $prop("BrakeBias") !== 0 ? (hasBB = true) : (hasBB = false);
-  var hasMAP = false;
-  $prop("GameRawData.Telemetry.dcFuelMixture") !== null
-    ? (hasMAP = true)
-    : (hasMAP = false);
-  var hasEPS = false;
-  $prop("GameRawData.Telemetry.dcPowerSteering") !== null
-    ? (hasEPS = true)
-    : (hasEPS = false);
-  var hasFARB = false;
-  $prop("GameRawData.Telemetry.dcAntiRollFront") !== null
-    ? (hasFARB = true)
-    : (hasFARB = false);
-  var hasBoost = false;
-  $prop("GameRawData.Telemetry.dcBoostLevel") !== null
-    ? (hasBoost = true)
-    : (hasBoost = false);
-  var hasRARB = false;
-  $prop("GameRawData.Telemetry.dcAntiRollRear") !== null
-    ? (hasRARB = true)
-    : (hasRARB = false);
-  var hasTPS = false;
-  $prop("GameRawData.Telemetry.dcThrottleShape") !== null
-    ? (hasTPS = true)
-    : (hasTPS = false);
-  return (arr = {
-    game: $prop("DataCorePlugin.CurrentGame"),
-    hasABS: hasABS,
-    hasTC1: hasTC1,
-    hasTC2: hasTC2,
-    hasBB: hasBB,
-    hasMAP: hasMAP,
-    hasEPS: hasEPS,
-    hasFARB: hasFARB,
-    hasBoost: hasBoost,
-    hasRARB: hasRARB,
-    hasTPS: hasTPS,
-  });
+  
+  var obj = {};
+  
+  // get current game
+  obj.game = $prop("DataCorePlugin.CurrentGame");
+  
+  // check if car has adjustable ABS
+  if ($prop("GameRawData.SessionData.CarSetup.Chassis.InCarDials.AbsSetting") !== null) {
+    obj.hasABS = true;
+  } else {
+    obj.hasABS = false;
+  }
+  
+  // check if car has adjustable TC1
+  if ($prop("TCLevel") !== null) {
+    obj.hasTC1 = true;
+  } else {
+    obj.hasTC1 = false;
+  }
+  
+  // check if car has adjustable TC2
+  if ($prop("GameRawData.Telemetry.dcTractionControl2") !== null) {
+    obj.hasTC2 = true;
+  } else {
+    obj.hasTC2 = false;
+  }
+  
+  // check if car has adjustable brake bias
+  if ($prop("BrakeBias") !== 0) {
+    obj.hasBB = true;
+  } else {
+    obj.hasBB = false;
+  }
+  
+  // check if car has adjustable fuel map
+  if ($prop("GameRawData.Telemetry.dcFuelMixture") !== null) {
+    obj.hasMAP = true;
+  } else {
+    obj.hasMAP = false;
+  }
+  
+  // check if car has adjustable power steering
+  if ($prop("GameRawData.Telemetry.dcPowerSteering") !== null) {
+    obj.hasEPS = true;
+  } else {
+    obj.hasEPS = false;
+  }
+  
+  // check if car has adjustable front arb
+  if ($prop("GameRawData.Telemetry.dcAntiRollFront") !== null) {
+    obj.hasFARB = true;
+  } else {
+    obj.hasFARB = false;
+  }
+  
+  // check if car has adjustable boost
+  if ($prop("GameRawData.Telemetry.dcBoostLevel") !== null) {
+    obj.hasBoost = true;
+  } else {
+    obj.hasBoost = false;
+  }
+  
+  // check if car has adjustable rear arb
+  if ($prop("GameRawData.Telemetry.dcAntiRollRear") !== null) {
+    obj.hasRARB = true;
+  } else {
+    obj.hasRARB = false;
+  }
+  
+  // check if car has adjustable throttle shape
+  if ($prop("GameRawData.Telemetry.dcThrottleShape") !== null) {
+    obj.hasTPS = true;
+  } else {
+    obj.hasTPS = false;
+  }
+  
+  return obj;
+  
 }
 
 // only return setting change if the setting is present
-function inCarSet() {
-  var arr = {};
+function in_car_settings() {
+  
+  var obj = {};
+  
+  // get ABS value
   if (info().hasABS === true) {
-    arr.absVal = $prop("ABSLevel");
+    obj.absVal = $prop("ABSLevel");
   }
+  
+  // get TC1 value
   if (info().hasTC1 === true) {
-    arr.tc1Val = $prop("TCLevel");
+    obj.tc1Val = $prop("TCLevel");
   }
+  
+  // get TC2 value
   if (info().hasTC2 === true) {
-    arr.tc2Val = $prop("GameRawData.Telemetry.dcTractionControl2");
+    obj.tc2Val = $prop("GameRawData.Telemetry.dcTractionControl2");
   }
+  
+  // get brake bias value
   if (info().hasBB === true) {
-    arr.bbVal = $prop("BrakeBias");
+    obj.bbVal = $prop("BrakeBias");
   }
+  
+  // get fuel map value
   if (info().hasMAP === true) {
-    arr.mapVal = $prop("GameRawData.Telemetry.dcFuelMixture");
+    obj.mapVal = $prop("GameRawData.Telemetry.dcFuelMixture");
   }
+  
+  // get power steering value
   if (info().hasEPS === true) {
-    arr.epsVal = $prop("GameRawData.Telemetry.dcPowerSteering");
+    obj.epsVal = $prop("GameRawData.Telemetry.dcPowerSteering");
   }
+  
+  // get front arb value
   if (info().hasFARB === true) {
-    arr.farbVal = $prop("GameRawData.Telemetry.dcAntiRollFront");
+    obj.farbVal = $prop("GameRawData.Telemetry.dcAntiRollFront");
   }
+  
+  // get boost value
   if (info().hasBoost === true) {
-    arr.boostVal = $prop("GameRawData.Telemetry.dcBoostLevel");
+    obj.boostVal = $prop("GameRawData.Telemetry.dcBoostLevel");
   }
+  
+  // get rear arb value
   if (info().hasRARB === true) {
-    arr.rarbVal = $prop("GameRawData.Telemetry.dcAntiRollRear");
+    obj.rarbVal = $prop("GameRawData.Telemetry.dcAntiRollRear");
   }
+  
+  // get throttle shape value
   if (info().hasTPS === true) {
-    arr.tpsVal = $prop("GameRawData.Telemetry.dcThrottleShape");
+    obj.tpsVal = $prop("GameRawData.Telemetry.dcThrottleShape");
   }
-  return arr;
+  
+  return obj;
+  
 }
 
 // large setting change alert
-function setChg() {
+function settings_change() {
+  
   if (info().hasABS === true) {
+    
+    // initialize root["abs"]
     if (root["abs"] == null) {
       root["abs"] = $prop("ABSLevel");
     }
+    
+    // update root["abs"] when ABS value changes
     if (root["abs"] != $prop("ABSLevel")) {
       root["abs"] = $prop("ABSLevel");
       root["setting"] = root["abs"];
       root["name"] = "ABS";
       root["color"] = colors().orange;
     }
+    
   }
 
   if (info().hasTC1 === true) {
+    
+    // initialize root["tc1"]
     if (root["tc1"] == null) {
       root["tc1"] = $prop("TCLevel");
     }
+    
+    // update root["tc1"] when TC1 value changes
     if (root["tc1"] != $prop("TCLevel")) {
       root["tc1"] = $prop("TCLevel");
       root["setting"] = root["tc1"];
       root["name"] = "TC A";
       root["color"] = colors().blue;
     }
+    
   }
 
   if (info().hasTC2 === true) {
+    
+    // initialize root["tc2"]
     if (root["tc2"] == null) {
       root["tc2"] = $prop("GameRawData.Telemetry.dcTractionControl2");
     }
+    
+    // update root["tc2"] when TC2 value changes
     if (root["tc2"] != $prop("GameRawData.Telemetry.dcTractionControl2")) {
       root["tc2"] = $prop("GameRawData.Telemetry.dcTractionControl2");
       root["setting"] = root["tc2"];
@@ -167,9 +235,13 @@ function setChg() {
   }
 
   if (info().hasBB === true) {
+    
+    // initialize root["bias"]
     if (root["bias"] == null) {
       root["bias"] = $prop("BrakeBias");
     }
+    
+    // update root["bias"] when brake bias value changes
     if (root["bias"] != $prop("BrakeBias")) {
       root["bias"] = $prop("BrakeBias");
       root["setting"] = root["bias"].toFixed(1);
@@ -179,9 +251,13 @@ function setChg() {
   }
 
   if (info().hasMAP === true) {
+    
+    // initialize root["map"]
     if (root["map"] == null) {
       root["map"] = $prop("GameRawData.Telemetry.dcFuelMixture");
     }
+    
+    // update root["map"] when fuel map value changes
     if (root["map"] != $prop("GameRawData.Telemetry.dcFuelMixture")) {
       root["map"] = $prop("GameRawData.Telemetry.dcFuelMixture");
       root["setting"] = root["map"];
@@ -191,9 +267,13 @@ function setChg() {
   }
 
   if (info().hasEPS === true) {
+    
+    // initialize root["eps"]
     if (root["eps"] == null) {
       root["eps"] = $prop("GameRawData.Telemetry.dcPowerSteering");
     }
+    
+    // update root["eps"] when power steering value changes
     if (root["eps"] != $prop("GameRawData.Telemetry.dcPowerSteering")) {
       root["eps"] = $prop("GameRawData.Telemetry.dcPowerSteering");
       root["setting"] = root["eps"];
@@ -203,9 +283,13 @@ function setChg() {
   }
 
   if (info().hasFARB === true) {
+    
+    // initialize root["farb"]
     if (root["farb"] == null) {
       root["farb"] = $prop("GameRawData.Telemetry.dcAntiRollFront");
     }
+    
+    // update root["farb"] when front arb value changes
     if (root["farb"] != $prop("GameRawData.Telemetry.dcAntiRollFront")) {
       root["farb"] = $prop("GameRawData.Telemetry.dcAntiRollFront");
       root["setting"] = root["farb"];
@@ -215,9 +299,13 @@ function setChg() {
   }
 
   if (info().hasBoost === true) {
+    
+    // initialize root["boost"]
     if (root["boost"] == null) {
       root["boost"] = $prop("GameRawData.Telemetry.dcBoostLevel");
     }
+    
+    // update root["boost"] when boost value changes
     if (root["boost"] != $prop("GameRawData.Telemetry.dcBoostLevel")) {
       root["boost"] = $prop("GameRawData.Telemetry.dcBoostLevel");
       root["setting"] = root["boost"];
@@ -227,9 +315,13 @@ function setChg() {
   }
 
   if (info().hasRARB === true) {
+    
+    // initialize root["rarb"]
     if (root["rarb"] == null) {
       root["rarb"] = $prop("GameRawData.Telemetry.dcAntiRollRear");
     }
+    
+    // update root["rarb"] when rear arb value changes
     if (root["rarb"] != $prop("GameRawData.Telemetry.dcAntiRollRear")) {
       root["rarb"] = $prop("GameRawData.Telemetry.dcAntiRollRear");
       root["setting"] = root["rarb"];
@@ -239,9 +331,13 @@ function setChg() {
   }
 
   if (info().hasTPS === true) {
+    
+    // initialize root["tps"]
     if (root["tps"] == null) {
       root["tps"] = $prop("GameRawData.Telemetry.dcThrottleShape");
     }
+    
+    // update root["tps"] when throttle shape value changes
     if (root["tps"] != $prop("GameRawData.Telemetry.dcThrottleShape")) {
       root["tps"] = $prop("GameRawData.Telemetry.dcThrottleShape");
       root["setting"] = root["tps"];
@@ -249,33 +345,39 @@ function setChg() {
       root["color"] = colors().purple;
     }
   }
-
-  return (arr = {
+  
+  // return the latest changed value
+  return (obj = {
     setting: root["setting"],
     name: root["name"],
     color: root["color"],
   });
+  
 }
 
-// return engine information
+// engine information
 function engine() {
-  return (arr = {
+  return (obj = {
     started: $prop("EngineStarted") === 1 ? true : false,
     ignition: $prop("EngineIgnitionOn") === 1 ? true : false,
   });
 }
 
-// return headlight information
+// headlight information
 function headlights() {
-  var arr = {};
+  
+  var obj = {};
+  
   if (info().game === "IRacing") {
-    arr.low = true;
-    arr.high = $prop("DataCorePlugin.GameRawData.Telemetry.dcHeadlightFlash");
+    obj.low = true;
+    obj.high = $prop("DataCorePlugin.GameRawData.Telemetry.dcHeadlightFlash");
   }
-  return arr;
+  
+  return obj;
+  
 }
 
-// return wiper information
+// wiper information
 function wipers() {
   if (info().game === "IRacing") {
     // these properties always output false :'(
@@ -290,30 +392,75 @@ function wipers() {
   }
 }
 
-// return pit status information
-function isInPit() {
-  return (arr = {
-    pitLimiterOn: $prop("PitLimiterOn") === 1 ? true : false,
-    isInPitLane: $prop("IsInPitLane") === 1 ? true : false,
-    timeInPit: $prop("IsInPitSince"),
+// pit status information
+function pit_info() {
+  return (obj = {
+    pit_limiter_on: $prop("PitLimiterOn") === 1 ? true : false,
+    in_pit_lane: $prop("IsInPitLane") === 1 ? true : false,
+    time_in_pit: $prop("IsInPitSince"),
   });
 }
 
-function calculateFuel() {
-  return $prop("CurrentLap") <= 3 ? true : false;
-}
+// fuel-related information
+function fuel_info() {
+  
+  var obj = {};
+  
+  // show calculate fuel message before lap 3
+  if ($prop("CurrentLap") <= 3) {
+    obj.calculate_fuel_message = true;
+  } else {
+    obj.calculate_fuel_message = false;
+  }
+  
+  // show low fuel alert when fuel percentage is below setting value
+  if ($prop("FuelPercent") <= settings().low_fuel_alert_percent) {
+    obj.low_fuel_alert = true;
+  } else {
+    obj.low_fuel_alert = false;
+  }
+  
+  // show fuel load alert when fuel percentage is above setting value
+  if ($prop('GameRawData.SessionData.WeekendInfo.WeekendOptions.IsFixedSetup') !== 1) {
+    if ($prop("FuelPercent") >= settings().quali_fuel_load_alert_percent) {
+      obj.fuel_load_alert = true;
+    } else {
+      obj.fuel_load_alert = false;
+    }
+  } else {
+    obj.fuel_load_alert = false;
+  }
+  
+  return obj;
 
-function lowFuel() {
-  return $prop("FuelPercent") <= settings().low_fuel_alert_percent
-    ? true
-    : false;
 }
 
 // predicted lap time
-function pred() {
+function predicted_time() {
+  
+  // get the best lap time in seconds
   var best = timespantoseconds($prop("BestLapTime"));
-  var delta = $prop('PersistantTrackerPlugin.SessionBestLiveDeltaSeconds');
+  
+  // get the current live delta
+  var delta = $prop("PersistantTrackerPlugin.SessionBestLiveDeltaSeconds");
+  
   return secondstotimespan(best + delta);
+  
+}
+
+// optimal lap time
+function optimal_time() {
+  
+  var s1 = timespantoseconds($prop("Sector1BestLapTime"));
+  
+  var s2 = timespantoseconds($prop("Sector2BestLapTime"));
+  
+  var s3 = timespantoseconds($prop("Sector3BestLapTime"));
+  
+  var t = s1 + s2 + s3;
+  
+  return secondstotimespan(t);
+  
 }
 
 function hybrid() {
@@ -335,46 +482,137 @@ function hybrid() {
       return "BUILD";
       break;
   }
+  
   var ers = $prop("GameRawData.Telemetry.EnergyERSBatteryPct") * 100;
-  return (arr = {
+  
+  return (obj = {
     ers: ers.toFixed(1),
     mode: mode,
   });
+  
 }
 
 // speed units
-function speedUnits() {
+function speed_units() {
+  
   if (settings().speed_unit === "kmh") {
     return $prop("SpeedKmh");
   } else if (settings().speed_unit === "mph") {
     return $prop("SpeedMph");
   }
+  
+}
+
+// determine if session is timed or number of laps
+function session_info() {
+  
+  var obj = {};
+  
+  var timedSession;
+  
+  var remLaps;
+  
+  var totalLaps;
+  
+  if (timespantoseconds($prop("SessionTimeLeft")) > 1) {
+    timedSession = true;
+  } else if (
+    $prop("TotalLaps") > 1 &&
+    timespantoseconds($prop("SessionTimeLeft")) == 0
+  ) {
+    timedSession = false;
+  } else {
+    timedSession = false;
+  }
+  
+  if (timedSession == false) {
+    if ($prop("RemainingLaps") <= 9) {
+      remLaps = "0" + $prop("RemainingLaps");
+    } else {
+      remLaps = $prop("RemainingLaps");
+    }
+    if ($prop("TotalLaps") <= 9) {
+      totalLaps = "0" + $prop("TotalLaps");
+    } else {
+      totalLaps = $prop("TotalLaps");
+    }
+  }
+  
+  obj.timedSession = timedSession;
+  
+  obj.sessionLaps = remLaps + " / " + totalLaps;
+  
+  return obj;
+  
+}
+
+// 
+function position_change() {
+
+  var obj = {};
+
+  if (root["pos"] == null) {
+    root["pos"] = $prop("Position");
+  }
+
+  if (root["posUp"] == null) {
+    root["posUp"] = false;
+  }
+
+  if (root["posDown"] == null) {
+    root["posDown"] = false;
+  }
+
+  if ($prop("CompletedLaps") >= 1) {
+    if (root["pos"] != $prop("Position")) {
+      if (root["pos"] > $prop("Position")) {
+        root["posUp"] = true;
+        root["posDown"] = false;
+        root["pos"] = $prop("Position")
+      } else if (root["pos"] < $prop("Position")) {
+        root["posUp"] = false;
+        root["posDown"] = true;
+        root["pos"] = $prop("Position")
+      }
+    }
+  } else {
+    root["posUp"] = false;
+    root["posDown"] = false;
+  }
+
+  obj.up = root["posUp"];
+  obj.down = root["posDown"];
+
+  return obj;
+
+}
+
+// controls qualifying screen visibility
+function qualifying_mode() {
+  
+  if (root["q_mode"] == null) {
+    root["q_mode"] = false;
+  }
+
+  if (root["j"] == null) {
+    root["j"] = true;
+  }
+
+  var q_mode_button = $prop("InputStatus.GraphicalDashPlugin.md_q_mode");
+
+  if (q_mode_button) {
+    if (!root["j"]) {
+      root["q_mode"] = !root["q_mode"];
+      root["j"] = true;
+    }
+  } else {
+    root["j"] = false;
+  }
+
+  return root["q_mode"];
+
 }
 
 function ver() {
-  return "0.001"; // tested and compatible with SimHub 9.3.8
+  return "0.005"; // tested and compatible with SimHub 9.3.8
 }
-
-/*
-// deploy, came from my lmp1 stuff
-var g = $prop('DataCorePlugin.CurrentGame');
-switch (g) {
-  case 'AssettoCorsa':
-    return $prop('GameRawData.Physics.KersCharge') * 100;
-    break;
-  case 'IRacing':
-    return $prop('GameRawData.Telemetry.EnergyMGU_KLapDeployPct') * 100;
-    break;
-}
-
-// charge, came from my lmp1 stuff
-var g = $prop('DataCorePlugin.CurrentGame');
-switch (g) {
-  case 'AssettoCorsa':
-    return $prop('GameRawData.Physics.KersCharge') * 100;
-    break;
-  case 'IRacing':
-    return $prop('GameRawData.Telemetry.EnergyERSBatteryPct') * 100;
-    break;
-}
-*/
